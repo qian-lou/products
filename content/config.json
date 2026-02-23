@@ -1,6 +1,6 @@
 {
   "seo": {
-    "title": "Alex Rivera - Full-stack Designer",
+    "title": "James Liao - Full-stack Designer | Vibe Coder",
     "description": "I build accessible, pixel-perfect, and performant web experiences. Specializing in React, TypeScript, and Design Systems.",
     "url": "https://alexrivera.design",
     "ogImage": "/images/og-image.png",
@@ -8,8 +8,14 @@
     "language": "en"
   },
   "navigation": [
-    { "label": "Works", "href": "/" },
-    { "label": "About", "href": "/about" }
+    {
+      "label": "Works",
+      "href": "/"
+    },
+    {
+      "label": "About",
+      "href": "/about"
+    }
   ],
   "features": {
     "darkMode": true,
