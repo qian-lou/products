@@ -1,0 +1,22 @@
+{
+  "title": "Portfolio Website",
+  "slug": "portfolio-website",
+  "date": "2026-02-20",
+  "excerpt": "A modern, minimal portfolio website built with React, TypeScript, and Tailwind CSS. Features markdown-driven content management and static site generation.",
+  "tags": [
+    "React",
+    "TypeScript",
+    "Tailwind CSS",
+    "SSG"
+  ],
+  "cover": "/images/works/portfolio-cover.png",
+  "demo": "https://myportfolio.vercel.app",
+  "github": "https://github.com/username/portfolio",
+  "featured": true,
+  "published": true,
+  "order": 1,
+  "content": "<h2>Project Overview</h2>\n\nThis portfolio website showcases my work and skills as a developer. Built with modern web technologies, it features:\n\n- <strong>Static Site Generation</strong>: Fast loading times with pre-rendered pages\n- <strong>Markdown-Driven</strong>: Easy content management through Markdown files\n- <strong>Responsive Design</strong>: Looks great on all devices\n- <strong>SEO Optimized</strong>: Meta tags, sitemap, and structured data\n\n<h2>Technical Highlights</h2>\n\n<h3>Content Management</h3>\n\nAll project content is stored in Markdown files with YAML frontmatter:\n\n<pre><code class=\"language-yaml\">---\ntitle: \"Project Title\"\nslug: \"project-slug\"\ndate: \"2026-02-20\"\nexcerpt: \"Short description\"\ntags: [\"React\", \"TypeScript\"]\n---\n</code></pre>\n\n<h3>Performance</h3>\n\n- Lighthouse score: 95+\n- First Contentful Paint: < 1.5s\n- Time to Interactive: < 3s\n\n<h2>Lessons Learned</h2>\n\nBuilding this portfolio taught me:\n\n1. <strong>Simplicity Wins</strong>: A minimal approach often leads to better maintainability\n2. <strong>Type Safety Matters</strong>: TypeScript catches errors before they reach production\n3. <strong>Static is Fast</strong>: Pre-rendered content provides the best user experience\n\n<h2>Future Improvements</h2>\n\n- [ ] Add dark mode toggle\n- [ ] Implement tag filtering\n- [ ] Add blog section\n- [ ] Multi-language support\n",
+  "rawContent": "## Project Overview\n\nThis portfolio website showcases my work and skills as a developer. Built with modern web technologies, it features:\n\n- **Static Site Generation**: Fast loading times with pre-rendered pages\n- **Markdown-Driven**: Easy content management through Markdown files\n- **Responsive Design**: Looks great on all devices\n- **SEO Optimized**: Meta tags, sitemap, and structured data\n\n## Technical Highlights\n\n### Content Management\n\nAll project content is stored in Markdown files with YAML frontmatter:\n\n```yaml\n---\ntitle: \"Project Title\"\nslug: \"project-slug\"\ndate: \"2026-02-20\"\nexcerpt: \"Short description\"\ntags: [\"React\", \"TypeScript\"]\n---\n```\n\n### Performance\n\n- Lighthouse score: 95+\n- First Contentful Paint: < 1.5s\n- Time to Interactive: < 3s\n\n## Lessons Learned\n\nBuilding this portfolio taught me:\n\n1. **Simplicity Wins**: A minimal approach often leads to better maintainability\n2. **Type Safety Matters**: TypeScript catches errors before they reach production\n3. **Static is Fast**: Pre-rendered content provides the best user experience\n\n## Future Improvements\n\n- [ ] Add dark mode toggle\n- [ ] Implement tag filtering\n- [ ] Add blog section\n- [ ] Multi-language support\n",
+  "filePath": "portfolio-website.md",
+  "readingTime": 1
+}

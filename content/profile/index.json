@@ -1,0 +1,72 @@
+{
+  "name": "Alex Rivera",
+  "title": "Full-stack Designer",
+  "bio": "I build accessible, pixel-perfect, and performant web experiences. Currently focused on React and Design Systems to create seamless digital products.",
+  "avatar": "/images/profile.png",
+  "location": "San Francisco, CA",
+  "email": "hello@alexrivera.design",
+  "availability": "Open to select projects",
+  "yearsOfExperience": 7,
+  "projects": "40+",
+  "clients": 18,
+  "timezone": "PST",
+  "website": "alexrivera.design",
+  "skills": [
+    {
+      "name": "React",
+      "category": "frontend"
+    },
+    {
+      "name": "TypeScript",
+      "category": "frontend"
+    },
+    {
+      "name": "Tailwind CSS",
+      "category": "frontend"
+    },
+    {
+      "name": "Figma",
+      "category": "design"
+    },
+    {
+      "name": "Node.js",
+      "category": "backend"
+    },
+    {
+      "name": "Next.js",
+      "category": "frontend"
+    }
+  ],
+  "socials": [
+    {
+      "platform": "github",
+      "label": "GitHub",
+      "url": "https://github.com/alexrivera",
+      "icon": "Github"
+    },
+    {
+      "platform": "email",
+      "label": "Email",
+      "url": "mailto:hello@alexrivera.design",
+      "icon": "Mail"
+    },
+    {
+      "platform": "linkedin",
+      "label": "LinkedIn",
+      "url": "https://linkedin.com/in/alexrivera",
+      "icon": "Linkedin"
+    },
+    {
+      "platform": "twitter",
+      "label": "Twitter",
+      "url": "https://twitter.com/alexrivera",
+      "icon": "Twitter"
+    },
+    {
+      "platform": "dribbble",
+      "label": "Dribbble",
+      "url": "https://dribbble.com/alexrivera",
+      "icon": "Dribbble"
+    }
+  ]
+}

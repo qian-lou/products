@@ -1,0 +1,36 @@
+{
+  "React": [
+    "portfolio-website",
+    "design-system"
+  ],
+  "TypeScript": [
+    "portfolio-website"
+  ],
+  "Tailwind CSS": [
+    "portfolio-website"
+  ],
+  "SSG": [
+    "portfolio-website"
+  ],
+  "Design System": [
+    "design-system"
+  ],
+  "Storybook": [
+    "design-system"
+  ],
+  "CSS-in-JS": [
+    "design-system"
+  ],
+  "Go": [
+    "cli-task-manager"
+  ],
+  "CLI": [
+    "cli-task-manager"
+  ],
+  "SQLite": [
+    "cli-task-manager"
+  ],
+  "TUI": [
+    "cli-task-manager"
+  ]
+}

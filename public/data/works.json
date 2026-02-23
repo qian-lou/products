@@ -1,0 +1,47 @@
+[
+  {
+    "title": "Portfolio Website",
+    "slug": "portfolio-website",
+    "date": "2026-02-20",
+    "excerpt": "A modern, minimal portfolio website built with React, TypeScript, and Tailwind CSS. Features markdown-driven content management and static site generation.",
+    "tags": [
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "SSG"
+    ],
+    "cover": "/images/works/portfolio-cover.png",
+    "featured": true,
+    "readingTime": 1
+  },
+  {
+    "title": "Design System Library",
+    "slug": "design-system",
+    "date": "2026-01-15",
+    "excerpt": "A comprehensive design system with reusable UI components, design tokens, and documentation. Built for scalability and consistency across multiple projects.",
+    "tags": [
+      "Design System",
+      "React",
+      "Storybook",
+      "CSS-in-JS"
+    ],
+    "cover": "/images/works/design-system-cover.png",
+    "featured": true,
+    "readingTime": 1
+  },
+  {
+    "title": "CLI Task Manager",
+    "slug": "cli-task-manager",
+    "date": "2025-11-08",
+    "excerpt": "A terminal-based task management tool with keyboard navigation, syntax highlighting, and SQLite storage. Built with Go for cross-platform compatibility.",
+    "tags": [
+      "Go",
+      "CLI",
+      "SQLite",
+      "TUI"
+    ],
+    "cover": "/images/works/cli-task-cover.png",
+    "featured": false,
+    "readingTime": 1
+  }
+]

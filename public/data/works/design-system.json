@@ -1,0 +1,21 @@
+{
+  "title": "Design System Library",
+  "slug": "design-system",
+  "date": "2026-01-15",
+  "excerpt": "A comprehensive design system with reusable UI components, design tokens, and documentation. Built for scalability and consistency across multiple projects.",
+  "tags": [
+    "Design System",
+    "React",
+    "Storybook",
+    "CSS-in-JS"
+  ],
+  "cover": "/images/works/design-system-cover.png",
+  "demo": "https://design-system.storybook.app",
+  "github": "https://github.com/username/design-system",
+  "featured": true,
+  "published": true,
+  "content": "<h2>Overview</h2>\n\nThis design system provides a unified language for building consistent user interfaces. It includes:\n\n- <strong>Design Tokens</strong>: Colors, typography, spacing, and shadows\n- <strong>Component Library</strong>: 50+ reusable React components\n- <strong>Documentation</strong>: Interactive examples with Storybook\n- <strong>Accessibility</strong>: WCAG 2.1 AA compliant\n\n<h2>Architecture</h2>\n\n<h3>Token System</h3>\n\nThe design system uses a token-based approach:\n\n<pre><code class=\"language-typescript\">const tokens = {\n  colors: {\n    primary: { 50: '#e3f2fd', 500: '#2196f3', 900: '#0d47a1' },\n    neutral: { 50: '#fafafa', 500: '#737373', 900: '#171717' },\n  },\n  spacing: { sm: '0.5rem', md: '1rem', lg: '1.5rem', xl: '2rem' },\n};\n</code></pre>\n\n<h3>Component API</h3>\n\nEach component follows a consistent API pattern:\n\n- Compound components for complex UI\n- Render props for flexibility\n- Forward refs for DOM access\n\n<h2>Metrics</h2>\n\n| Metric | Value |\n|--------|-------|\n| Components | 52 |\n| Test Coverage | 95% |\n| Bundle Size | 45kb gzipped |\n| Downloads | 10k+/month |\n\n<h2>Impact</h2>\n\nThe design system has:\n\n- Reduced development time by 40%\n- Improved UI consistency across 8 projects\n- Decreased bug reports related to styling by 60%\n",
+  "rawContent": "## Overview\n\nThis design system provides a unified language for building consistent user interfaces. It includes:\n\n- **Design Tokens**: Colors, typography, spacing, and shadows\n- **Component Library**: 50+ reusable React components\n- **Documentation**: Interactive examples with Storybook\n- **Accessibility**: WCAG 2.1 AA compliant\n\n## Architecture\n\n### Token System\n\nThe design system uses a token-based approach:\n\n```typescript\nconst tokens = {\n  colors: {\n    primary: { 50: '#e3f2fd', 500: '#2196f3', 900: '#0d47a1' },\n    neutral: { 50: '#fafafa', 500: '#737373', 900: '#171717' },\n  },\n  spacing: { sm: '0.5rem', md: '1rem', lg: '1.5rem', xl: '2rem' },\n};\n```\n\n### Component API\n\nEach component follows a consistent API pattern:\n\n- Compound components for complex UI\n- Render props for flexibility\n- Forward refs for DOM access\n\n## Metrics\n\n| Metric | Value |\n|--------|-------|\n| Components | 52 |\n| Test Coverage | 95% |\n| Bundle Size | 45kb gzipped |\n| Downloads | 10k+/month |\n\n## Impact\n\nThe design system has:\n\n- Reduced development time by 40%\n- Improved UI consistency across 8 projects\n- Decreased bug reports related to styling by 60%\n",
+  "filePath": "design-system.md",
+  "readingTime": 1
+}

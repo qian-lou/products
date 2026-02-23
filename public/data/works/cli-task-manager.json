@@ -1,0 +1,20 @@
+{
+  "title": "CLI Task Manager",
+  "slug": "cli-task-manager",
+  "date": "2025-11-08",
+  "excerpt": "A terminal-based task management tool with keyboard navigation, syntax highlighting, and SQLite storage. Built with Go for cross-platform compatibility.",
+  "tags": [
+    "Go",
+    "CLI",
+    "SQLite",
+    "TUI"
+  ],
+  "cover": "/images/works/cli-task-cover.png",
+  "github": "https://github.com/username/cli-task-manager",
+  "featured": false,
+  "published": true,
+  "content": "<h2>Introduction</h2>\n\nA command-line task manager that brings the power of GUI applications to the terminal. Features include:\n\n- Keyboard-driven interface\n- Real-time search and filtering\n- Due date reminders\n- Data export (JSON, CSV)\n\n<h2>Installation</h2>\n\n<pre><code class=\"language-bash\"># Using Homebrew\nbrew install username/task-cli\n\n<h1>Using Go</h1>\ngo install github.com/username/task-cli@latest\n</code></pre>\n\n<h2>Usage</h2>\n\n<pre><code class=\"language-bash\"># Add a task\ntask add \"Complete documentation\" -t work -d tomorrow\n\n<h1>List tasks</h1>\ntask list --all\n\n<h1>Complete a task</h1>\ntask done 1\n</code></pre>\n\n<h2>Design Philosophy</h2>\n\n<h3>Minimal Dependencies</h3>\n\nThe only external dependency is SQLite for data persistence. All UI components are built using the standard library and <a href=\"https://github.com/charmbracelet/bubbletea\" target=\"_blank\" rel=\"noopener\">Bubble Tea</a>.\n\n<h3>Performance First</h3>\n\n- Startup time: < 50ms\n- Memory usage: < 10MB\n- Works with 10k+ tasks without lag\n\n<h2>Key Bindings</h2>\n\n| Key | Action |\n|-----|--------|\n| <code>j/k</code> | Navigate up/down |\n| <code>Enter</code> | Select |\n| <code>n</code> | New task |\n| <code>d</code> | Delete |\n| <code>q</code> | Quit |\n\n<h2>Technical Details</h2>\n\nBuilt with:\n\n- Go 1.21+\n- SQLite (embedded)\n- Bubble Tea (TUI framework)\n- Cobra (CLI framework)\n",
+  "rawContent": "## Introduction\n\nA command-line task manager that brings the power of GUI applications to the terminal. Features include:\n\n- Keyboard-driven interface\n- Real-time search and filtering\n- Due date reminders\n- Data export (JSON, CSV)\n\n## Installation\n\n```bash\n# Using Homebrew\nbrew install username/task-cli\n\n# Using Go\ngo install github.com/username/task-cli@latest\n```\n\n## Usage\n\n```bash\n# Add a task\ntask add \"Complete documentation\" -t work -d tomorrow\n\n# List tasks\ntask list --all\n\n# Complete a task\ntask done 1\n```\n\n## Design Philosophy\n\n### Minimal Dependencies\n\nThe only external dependency is SQLite for data persistence. All UI components are built using the standard library and [Bubble Tea](https://github.com/charmbracelet/bubbletea).\n\n### Performance First\n\n- Startup time: < 50ms\n- Memory usage: < 10MB\n- Works with 10k+ tasks without lag\n\n## Key Bindings\n\n| Key | Action |\n|-----|--------|\n| `j/k` | Navigate up/down |\n| `Enter` | Select |\n| `n` | New task |\n| `d` | Delete |\n| `q` | Quit |\n\n## Technical Details\n\nBuilt with:\n\n- Go 1.21+\n- SQLite (embedded)\n- Bubble Tea (TUI framework)\n- Cobra (CLI framework)\n",
+  "filePath": "cli-task-manager.md",
+  "readingTime": 1
+}

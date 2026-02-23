@@ -1,0 +1,357 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ========== 主题配置 ========== */
+@theme {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
+
+/* ========== 标题字体 ========== */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+  letter-spacing: -0.025em;
+}
+
+/* ========== 全局样式 ========== */
+:root {
+  /* Light Mode Colors */
+  --color-bg: #f8fafc;
+  --color-bg-elevated: #ffffff;
+  --color-text: #0f172a;
+  --color-text-secondary: #475569;
+  --color-text-muted: #64748b;
+  --color-border: #e2e8f0;
+  --color-primary: #2563eb;
+  --color-primary-hover: #1d4ed8;
+}
+
+.dark {
+  /* Dark Mode Colors */
+  --color-bg: #121212;
+  --color-bg-elevated: #1e1e1e;
+  --color-text: #e0e0e0;
+  --color-text-secondary: #b0b0b0;
+  --color-text-muted: #a0a0a0;
+  --color-border: rgba(255, 255, 255, 0.1);
+  --color-primary: #60a5fa;
+  --color-primary-hover: #93c5fd;
+}
+
+/* ========== 基础样式 ========== */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 300ms ease, color 300ms ease;
+}
+
+/* ========== 选中文本样式 ========== */
+::selection {
+  background-color: rgba(0, 0, 0, 0.1);
+  color: #000;
+}
+
+.dark ::selection {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+/* ========== 滚动条样式 ========== */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* 自定义滚动条（桌面端） */
+@media (min-width: 1024px) {
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+  }
+
+  .dark ::-webkit-scrollbar-thumb {
+    background: #3a3a3a;
+  }
+
+  .dark ::-webkit-scrollbar-thumb:hover {
+    background: #4a4a4a;
+  }
+}
+
+/* ========== Markdown 样式 ========== */
+.prose {
+  --tw-prose-body: #475569;
+  --tw-prose-headings: #0f172a;
+  --tw-prose-links: #2563eb;
+  --tw-prose-code: #0f172a;
+  line-height: 1.75;
+}
+
+.dark .prose {
+  --tw-prose-body: #a0a0a0;
+  --tw-prose-headings: #ffffff;
+  --tw-prose-links: #60a5fa;
+  --tw-prose-code: #e0e0e0;
+}
+
+/* 标题样式 */
+.prose h2 {
+  @apply text-2xl font-bold mt-12 mb-6 text-slate-900 dark:text-white;
+  scroll-margin-top: 100px;
+}
+
+.prose h3 {
+  @apply text-xl font-semibold mt-10 mb-4 text-slate-800 dark:text-slate-100;
+  scroll-margin-top: 100px;
+}
+
+.prose h4 {
+  @apply text-lg font-semibold mt-8 mb-3 text-slate-700 dark:text-slate-200;
+}
+
+/* 段落 */
+.prose p {
+  @apply leading-relaxed mb-6 text-slate-600 dark:text-slate-400;
+}
+
+/* 列表 */
+.prose ul,
+.prose ol {
+  @apply my-6 pl-6;
+}
+
+.prose ul {
+  @apply list-disc;
+}
+
+.prose ol {
+  @apply list-decimal;
+}
+
+.prose li {
+  @apply mb-3 text-slate-600 dark:text-slate-400;
+}
+
+.prose li::marker {
+  @apply text-slate-400 dark:text-slate-500;
+}
+
+/* 链接 */
+.prose a {
+  @apply text-slate-900 dark:text-white underline underline-offset-4 decoration-slate-300 dark:decoration-slate-700;
+  text-underline-thickness: 1px;
+}
+
+.prose a:hover {
+  @apply decoration-slate-900 dark:decoration-white;
+  text-underline-thickness: 1px;
+}
+
+/* 行内代码 */
+.prose code:not(pre code) {
+  @apply bg-slate-100 dark:bg-white/10 px-2 py-1 rounded-md text-sm font-mono;
+  @apply text-pink-600 dark:text-pink-400;
+}
+
+/* 代码块 */
+.prose pre {
+  @apply bg-slate-900 dark:bg-[#1a1a1a] rounded-xl p-5 overflow-x-auto my-8;
+  @apply border border-slate-800 dark:border-slate-800;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+}
+
+.prose pre code {
+  @apply bg-transparent p-0 text-sm leading-relaxed;
+  @apply text-slate-100;
+}
+
+/* 代码语法高亮增强 */
+.prose pre .keyword {
+  color: #c678dd;
+}
+
+.prose pre .string {
+  color: #98c379;
+}
+
+.prose pre .comment {
+  color: #5c6370;
+  font-style: italic;
+}
+
+.prose pre .function {
+  color: #61afef;
+}
+
+.prose pre .number {
+  color: #d19a66;
+}
+
+/* 引用块 */
+.prose blockquote {
+  @apply border-l-4 border-blue-500 pl-6 py-2 my-8;
+  @apply bg-slate-50 dark:bg-white/5 rounded-r-lg;
+  @apply text-slate-600 dark:text-slate-400 italic;
+}
+
+.prose blockquote p {
+  @apply mb-0;
+}
+
+/* 表格 */
+.prose table {
+  @apply w-full my-8 border-collapse;
+}
+
+.prose thead {
+  @apply border-b-2 border-slate-200 dark:border-slate-700;
+}
+
+.prose th {
+  @apply px-4 py-3 text-left font-semibold text-slate-900 dark:text-white;
+}
+
+.prose td {
+  @apply px-4 py-3 border-b border-slate-100 dark:border-slate-800;
+  @apply text-slate-600 dark:text-slate-400;
+}
+
+.prose tbody tr:hover {
+  @apply bg-slate-50 dark:bg-white/5;
+}
+
+.prose tbody tr:last-child td {
+  @apply border-b-0;
+}
+
+/* 图片 */
+.prose img {
+  @apply rounded-xl my-8 w-full;
+  @apply border border-slate-200 dark:border-slate-800;
+  @apply shadow-lg;
+}
+
+/* 分割线 */
+.prose hr {
+  @apply my-12 border-slate-200 dark:border-slate-800;
+}
+
+/* 任务列表 */
+.prose input[type="checkbox"] {
+  @apply mr-2 accent-blue-600 dark:accent-blue-400;
+}
+
+/* ========== 动画 ========== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 300ms ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 400ms ease-out forwards;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 400ms ease-out forwards;
+}
+
+/* 交错动画延迟 */
+.stagger-1 {
+  animation-delay: 100ms;
+}
+
+.stagger-2 {
+  animation-delay: 200ms;
+}
+
+.stagger-3 {
+  animation-delay: 300ms;
+}
+
+.stagger-4 {
+  animation-delay: 400ms;
+}
+
+/* ========== Focus 样式 ========== */
+*:focus-visible {
+  @apply outline-none ring-2 ring-slate-900 ring-offset-2;
+}
+
+.dark *:focus-visible {
+  @apply ring-slate-100 ring-offset-[#121212];
+}
+
+/* ========== 打印样式 ========== */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  body {
+    background: white !important;
+    color: black !important;
+  }
+}

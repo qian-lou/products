@@ -1,0 +1,39 @@
+{
+  "name": "portfolio-website",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "next dev --port=3000",
+    "build": "npm run content:validate && next build",
+    "start": "next start",
+    "lint": "next lint",
+    "content:validate": "node scripts/validate-content.js",
+    "content:build": "node scripts/build-data.js",
+    "new:work": "node scripts/new-work.js"
+  },
+  "dependencies": {
+    "next": "^15.2.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "gray-matter": "^4.0.3",
+    "next-themes": "^0.4.6",
+    "lucide-react": "^0.546.0",
+    "motion": "^12.23.24",
+    "clsx": "^2.1.1",
+    "tailwind-merge": "^3.0.2",
+    "remark": "^15.0.1",
+    "remark-html": "^16.0.1",
+    "remark-gfm": "^4.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "typescript": "~5.8.2",
+    "tailwindcss": "^4.1.14",
+    "@tailwindcss/postcss": "^4.1.14",
+    "eslint": "^9.0.0",
+    "eslint-config-next": "^15.2.0"
+  }
+}

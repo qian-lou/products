@@ -1,0 +1,25 @@
+{
+  "seo": {
+    "title": "Your Name - Portfolio",
+    "description": "Full Stack Developer specializing in React, TypeScript, and modern web technologies. View my projects and get in touch.",
+    "url": "https://yourname.vercel.app",
+    "ogImage": "/images/og-image.png",
+    "twitterHandle": "@yourhandle",
+    "language": "en"
+  },
+  "navigation": [
+    {
+      "label": "Works",
+      "href": "/"
+    },
+    {
+      "label": "About",
+      "href": "/about"
+    }
+  ],
+  "features": {
+    "darkMode": true,
+    "analytics": true,
+    "gaId": "G-XXXXXXXXXX"
+  }
+}

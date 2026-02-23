@@ -1,0 +1,75 @@
+{
+  "name": "Your Name",
+  "title": "Full Stack Developer",
+  "bio": "I'm a passionate developer with 5+ years of experience building web applications. I love creating elegant solutions to complex problems and am always learning new technologies.",
+  "avatar": "/images/avatar.png",
+  "location": "San Francisco, CA",
+  "email": "hello@example.com",
+  "resume": "/resume.pdf",
+  "skills": [
+    {
+      "name": "TypeScript",
+      "category": "frontend"
+    },
+    {
+      "name": "React",
+      "category": "frontend"
+    },
+    {
+      "name": "Next.js",
+      "category": "frontend"
+    },
+    {
+      "name": "Vue.js",
+      "category": "frontend"
+    },
+    {
+      "name": "Tailwind CSS",
+      "category": "frontend"
+    },
+    {
+      "name": "Node.js",
+      "category": "backend"
+    },
+    {
+      "name": "Go",
+      "category": "backend"
+    },
+    {
+      "name": "PostgreSQL",
+      "category": "backend"
+    },
+    {
+      "name": "Figma",
+      "category": "design"
+    },
+    {
+      "name": "Git",
+      "category": "tools"
+    },
+    {
+      "name": "Docker",
+      "category": "tools"
+    }
+  ],
+  "socials": [
+    {
+      "platform": "github",
+      "label": "GitHub",
+      "url": "https://github.com/username",
+      "icon": "Github"
+    },
+    {
+      "platform": "email",
+      "label": "Email",
+      "url": "mailto:hello@example.com",
+      "icon": "Mail"
+    },
+    {
+      "platform": "linkedin",
+      "label": "LinkedIn",
+      "url": "https://linkedin.com/in/username",
+      "icon": "Linkedin"
+    }
+  ]
+}

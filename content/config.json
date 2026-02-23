@@ -1,0 +1,18 @@
+{
+  "seo": {
+    "title": "Alex Rivera - Full-stack Designer",
+    "description": "I build accessible, pixel-perfect, and performant web experiences. Specializing in React, TypeScript, and Design Systems.",
+    "url": "https://alexrivera.design",
+    "ogImage": "/images/og-image.png",
+    "twitterHandle": "@alexrivera",
+    "language": "en"
+  },
+  "navigation": [
+    { "label": "Works", "href": "/" },
+    { "label": "About", "href": "/about" }
+  ],
+  "features": {
+    "darkMode": true,
+    "analytics": false
+  }
+}
