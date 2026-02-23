@@ -4,7 +4,7 @@
   "bio": "I build accessible, pixel-perfect, and performant web experiences. Currently focused on React and Design Systems to create seamless digital products.",
   "avatar": "/images/profile.png",
   "location": "San Francisco, CA",
-  "email": "[EMAIL_ADDRESS]",
+  "email": "hello@alexrivera.design",
   "availability": "Open to select projects",
   "yearsOfExperience": 7,
   "projects": "40+",
@@ -41,7 +41,7 @@
     {
       "platform": "github",
       "label": "GitHub",
-      "url": "https://github.com/alexrivera",
+      "url": "https://github.com/qian-lou",
       "icon": "Github"
     },
     {
