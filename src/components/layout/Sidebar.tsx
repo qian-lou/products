@@ -9,7 +9,7 @@
 
 import { Mail, Github, Linkedin, Twitter, Dribbble, Menu, X } from 'lucide-react';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 
 // 记录本页面的 SPA 会话期间是否已经播放过动画，用于替代 sessionStorage 避免 hydration mismatch
@@ -63,16 +63,17 @@ export function Sidebar({ profile, mobileOnly, disableAnimation }: SidebarProps)
 
   // 侧边栏动画仅在首次访问时播放，后续导航（SPA内部路由）跳过
   // 使用模块级变量确保首屏渲染 (Hydration) 与 SSR 结果一致，避免使用 sessionStorage 导致 hydration mismatch
-  const shouldSkipAnimation = (() => {
+  const [shouldSkipAnimation] = useState(() => {
     if (disableAnimation) return true;
     if (typeof window === 'undefined') return false;
+    return hasAnimatedInSession;
+  });
 
-    if (!hasAnimatedInSession) {
+  useEffect(() => {
+    if (!disableAnimation) {
       hasAnimatedInSession = true;
-      return false;
     }
-    return true;
-  })();
+  }, [disableAnimation]);
 
   return (
     <>

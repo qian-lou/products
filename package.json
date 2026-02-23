@@ -13,27 +13,27 @@
     "new:work": "node scripts/new-work.js"
   },
   "dependencies": {
-    "next": "^15.2.0",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "clsx": "^2.1.1",
     "gray-matter": "^4.0.3",
-    "next-themes": "^0.4.6",
     "lucide-react": "^0.546.0",
     "motion": "^12.23.24",
-    "clsx": "^2.1.1",
-    "tailwind-merge": "^3.0.2",
+    "next": "^16.1.6",
+    "next-themes": "^0.4.6",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
     "remark": "^15.0.1",
+    "remark-gfm": "^4.0.1",
     "remark-html": "^16.0.1",
-    "remark-gfm": "^4.0.1"
+    "tailwind-merge": "^3.0.2"
   },
   "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.14",
     "@types/node": "^22.14.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
-    "typescript": "~5.8.2",
-    "tailwindcss": "^4.1.14",
-    "@tailwindcss/postcss": "^4.1.14",
     "eslint": "^9.0.0",
-    "eslint-config-next": "^15.2.0"
+    "eslint-config-next": "^16.1.6",
+    "tailwindcss": "^4.1.14",
+    "typescript": "~5.8.2"
   }
 }
