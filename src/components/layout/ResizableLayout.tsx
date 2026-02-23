@@ -89,7 +89,7 @@ export function ResizableLayout({ sidebar, children }: ResizableLayoutProps) {
         <div className="hidden lg:block">
             {/* 侧边栏容器 */}
             <div
-                className="fixed top-0 left-0 h-screen bg-white dark:bg-[#141414] border-r border-slate-200/60 dark:border-white/5 z-10 overflow-hidden shadow-[4px_0_24px_-2px_rgba(0,0,0,0.06),1px_0_6px_-1px_rgba(0,0,0,0.03)] dark:shadow-[4px_0_24px_-2px_rgba(0,0,0,0.4),1px_0_6px_-1px_rgba(0,0,0,0.2)]"
+                className="fixed top-0 left-0 h-screen bg-transparent border-r border-slate-200/60 dark:border-white/5 z-10 overflow-hidden shadow-[4px_0_24px_-2px_rgba(0,0,0,0.06),1px_0_6px_-1px_rgba(0,0,0,0.03)] dark:shadow-[4px_0_24px_-2px_rgba(0,0,0,0.4),1px_0_6px_-1px_rgba(0,0,0,0.2)]"
                 style={{
                     width: `${displayWidth}px`,
                     transition: isDragging ? 'none' : 'width 0.3s ease',
@@ -142,10 +142,10 @@ export function ResizableLayout({ sidebar, children }: ResizableLayoutProps) {
 
             {/* 主内容区 */}
             <div
-                className="h-screen overflow-y-auto bg-slate-50 dark:bg-[#121212] transition-colors duration-300"
+                className="h-screen overflow-y-auto bg-transparent transition-colors duration-300"
                 style={{
                     marginLeft: `${displayWidth}px`,
-                    transition: isDragging ? 'margin-left 0s' : 'margin-left 0.3s ease, background-color 0.3s',
+                    transition: isDragging ? 'margin-left 0s' : 'margin-left 0.3s ease',
                 }}
             >
                 {children}

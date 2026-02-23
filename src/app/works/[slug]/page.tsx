@@ -184,7 +184,7 @@ export default async function WorkDetailPage({
       </ResizableLayout>
 
       {/* 移动端：常规全宽布局 */}
-      <main className="lg:hidden w-full min-h-screen pt-[65px] bg-slate-50 dark:bg-[#121212] transition-colors duration-300">
+      <main className="lg:hidden w-full min-h-screen pt-[65px] bg-transparent transition-colors duration-300">
         {detailContent}
       </main>
     </>

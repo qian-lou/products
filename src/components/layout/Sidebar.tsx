@@ -12,6 +12,9 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { motion } from 'motion/react';
 
+// 记录本页面的 SPA 会话期间是否已经播放过动画，用于替代 sessionStorage 避免 hydration mismatch
+let hasAnimatedInSession = false;
+
 // 侧边栏交错动画变体
 const sidebarContainer = {
   hidden: { opacity: 0 },
@@ -58,14 +61,17 @@ export function Sidebar({ profile, mobileOnly, disableAnimation }: SidebarProps)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { t } = useI18n();
 
-  // 侧边栏动画仅在首次访问时播放，后续导航跳过
+  // 侧边栏动画仅在首次访问时播放，后续导航（SPA内部路由）跳过
+  // 使用模块级变量确保首屏渲染 (Hydration) 与 SSR 结果一致，避免使用 sessionStorage 导致 hydration mismatch
   const shouldSkipAnimation = (() => {
     if (disableAnimation) return true;
     if (typeof window === 'undefined') return false;
-    const key = 'sidebar-animated';
-    if (sessionStorage.getItem(key)) return true;
-    sessionStorage.setItem(key, '1');
-    return false;
+
+    if (!hasAnimatedInSession) {
+      hasAnimatedInSession = true;
+      return false;
+    }
+    return true;
   })();
 
   return (
@@ -101,7 +107,7 @@ export function Sidebar({ profile, mobileOnly, disableAnimation }: SidebarProps)
       {/* 移动端侧边菜单 */}
       <div
         className={cn(
-          'lg:hidden fixed top-[65px] left-0 right-0 z-40 bg-white dark:bg-[#121212] border-b border-slate-200 dark:border-white/5 transition-transform duration-300',
+          'lg:hidden fixed top-[65px] left-0 right-0 z-40 bg-white/90 dark:bg-[#121212]/90 backdrop-blur-3xl border-b border-slate-200 dark:border-white/5 transition-transform duration-300',
           isMobileMenuOpen ? 'translate-y-0' : '-translate-y-full'
         )}
       >
@@ -163,7 +169,7 @@ export function Sidebar({ profile, mobileOnly, disableAnimation }: SidebarProps)
 
       {/* 桌面端侧边栏 — mobileOnly 模式下跳过 */}
       {!mobileOnly && (
-        <header className="hidden lg:flex w-full h-screen flex-col justify-between p-8 xl:p-10 overflow-y-auto bg-white dark:bg-[#121212] transition-colors duration-300 no-scrollbar">
+        <header className="hidden lg:flex w-full h-screen flex-col justify-between p-8 xl:p-10 overflow-y-auto bg-transparent transition-colors duration-300 no-scrollbar">
           {/* ═══ 主内容区 ═══ */}
           <motion.div
             className="flex flex-col gap-5"

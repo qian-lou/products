@@ -46,7 +46,7 @@ export default async function HomePage() {
       </ResizableLayout>
 
       {/* 移动端：常规全宽布局 */}
-      <main className="lg:hidden w-full min-h-screen pt-[65px] p-6 bg-slate-50 dark:bg-[#121212] transition-colors duration-300">
+      <main className="lg:hidden w-full min-h-screen pt-[65px] p-6 bg-transparent transition-colors duration-300">
         {mainContent}
       </main>
     </>
