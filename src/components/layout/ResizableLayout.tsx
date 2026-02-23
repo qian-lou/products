@@ -129,13 +129,13 @@ export function ResizableLayout({ sidebar, children }: ResizableLayoutProps) {
                 {/* 折叠/展开按钮 */}
                 <button
                     onClick={toggleCollapse}
-                    className="absolute top-1/2 -translate-y-1/2 left-1 w-6 h-12 rounded-r-md bg-white dark:bg-[#1a1a1a] border border-l-0 border-slate-200 dark:border-white/10 flex items-center justify-center opacity-0 group-hover:opacity-100 hover:bg-slate-50 dark:hover:bg-white/5 transition-all duration-200 shadow-sm"
+                    className="absolute top-1/2 -translate-y-1/2 left-0.5 w-4 h-8 rounded-r-md bg-white dark:bg-[#1a1a1a] border border-l-0 border-slate-200 dark:border-white/10 flex items-center justify-center opacity-0 group-hover:opacity-100 hover:bg-slate-50 dark:hover:bg-white/5 transition-all duration-200 shadow-sm"
                     aria-label={isCollapsed ? 'Expand sidebar' : 'Collapse sidebar'}
                 >
                     {isCollapsed ? (
-                        <PanelLeftOpen size={14} className="text-slate-500 dark:text-slate-400" />
+                        <PanelLeftOpen size={12} className="text-slate-500 dark:text-slate-400" />
                     ) : (
-                        <PanelLeftClose size={14} className="text-slate-500 dark:text-slate-400" />
+                        <PanelLeftClose size={12} className="text-slate-500 dark:text-slate-400" />
                     )}
                 </button>
             </div>

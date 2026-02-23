@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import { Inter, Outfit } from 'next/font/google';
 import { ThemeProvider } from '@/components/providers/ThemeProvider';
+import { I18nProvider } from '@/components/providers/I18nProvider';
 import { getProfile, getSiteConfig } from '@/lib/content';
 import './globals.css';
 
@@ -78,9 +79,11 @@ export default async function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="min-h-screen bg-slate-50 dark:bg-[#121212] text-slate-900 dark:text-slate-100 font-sans selection:bg-blue-600/30 selection:text-blue-900 dark:selection:text-white transition-colors duration-300">
-            {children}
-          </div>
+          <I18nProvider>
+            <div className="min-h-screen bg-slate-50 dark:bg-[#121212] text-slate-900 dark:text-slate-100 font-sans selection:bg-blue-600/30 selection:text-blue-900 dark:selection:text-white transition-colors duration-300">
+              {children}
+            </div>
+          </I18nProvider>
         </ThemeProvider>
       </body>
     </html>

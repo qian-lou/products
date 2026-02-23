@@ -2,15 +2,19 @@ import { Sidebar, Footer, ResizableLayout } from '@/components/layout';
 import { WorkList } from '@/components/works';
 import { PageTransition } from '@/components/ui';
 import { getWorkList, getProfile } from '@/lib/content';
+import { getServerLocale } from '@/lib/locale';
+import { HomeHeader } from '@/components/works/HomeHeader';
 
 // 内容目录路径
 const contentDir = process.cwd() + '/content';
 
 export default async function HomePage() {
+  const locale = await getServerLocale();
+
   // 并行获取数据
   const [works, profile] = await Promise.all([
-    getWorkList(contentDir),
-    getProfile(contentDir),
+    getWorkList(contentDir, locale),
+    getProfile(contentDir, locale),
   ]);
 
   // 共用的主内容区 JSX
@@ -19,14 +23,7 @@ export default async function HomePage() {
       {/* 作品列表 */}
       <section id="works" className="mb-16 lg:mb-20">
         {/* 标题 */}
-        <div className="mb-8 lg:mb-10">
-          <h2 className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400 dark:text-slate-500">
-            Selected Works
-          </h2>
-          <p className="mt-2 text-slate-500 dark:text-slate-400 text-sm">
-            {works.length} projects
-          </p>
-        </div>
+        <HomeHeader workCount={works.length} />
 
         <WorkList works={works} />
       </section>

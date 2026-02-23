@@ -4,19 +4,23 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowLeft, ExternalLink, Github } from 'lucide-react';
 import { getWorkBySlug, getWorkList, getProfile } from '@/lib/content';
+import { getServerLocale } from '@/lib/locale';
 import { formatDate } from '@/lib/utils';
 import { Sidebar, Footer, ResizableLayout } from '@/components/layout';
 import { PageTransition } from '@/components/ui';
+import { BackLabel, DemoLabel, SourceLabel, ReadingTime } from '@/components/works/DetailLabels';
 
 // 内容目录路径
 const contentDir = process.cwd() + '/content';
 
-// 生成静态参数
+// 生成静态参数（两种语言的 slug 取并集）
 export async function generateStaticParams() {
-  const works = await getWorkList(contentDir);
-  return works.map((work) => ({
-    slug: work.slug,
-  }));
+  const [enWorks, zhWorks] = await Promise.all([
+    getWorkList(contentDir, 'en'),
+    getWorkList(contentDir, 'zh'),
+  ]);
+  const slugSet = new Set([...enWorks, ...zhWorks].map((w) => w.slug));
+  return Array.from(slugSet).map((slug) => ({ slug }));
 }
 
 // 生成元数据
@@ -51,11 +55,12 @@ export default async function WorkDetailPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
+  const locale = await getServerLocale();
 
   // 并行获取数据
   const [work, profile] = await Promise.all([
-    getWorkBySlug(slug, contentDir),
-    getProfile(contentDir),
+    getWorkBySlug(slug, contentDir, locale),
+    getProfile(contentDir, locale),
   ]);
 
   if (!work) {
@@ -73,7 +78,7 @@ export default async function WorkDetailPage({
             className="inline-flex items-center gap-2 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors group"
           >
             <ArrowLeft size={18} className="group-hover:-translate-x-1 transition-transform" />
-            <span className="text-sm font-medium">Back</span>
+            <BackLabel />
           </Link>
         </div>
       </nav>
@@ -92,7 +97,7 @@ export default async function WorkDetailPage({
           <div className="mt-4 lg:mt-6 flex flex-wrap items-center gap-2 lg:gap-3 text-xs lg:text-sm text-slate-500 dark:text-slate-500">
             <time dateTime={work.date}>{formatDate(work.date)}</time>
             <span className="text-slate-300 dark:text-slate-700">•</span>
-            <span>{work.readingTime} min read</span>
+            <ReadingTime minutes={work.readingTime} />
           </div>
 
           {/* 标签 */}
@@ -118,7 +123,7 @@ export default async function WorkDetailPage({
                   className="inline-flex items-center gap-2 px-4 lg:px-5 py-2 lg:py-2.5 rounded-lg bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-semibold text-sm hover:bg-slate-800 dark:hover:bg-slate-100 transition-all"
                 >
                   <ExternalLink size={16} />
-                  Live Demo
+                  <DemoLabel />
                 </a>
               )}
               {work.github && (
@@ -129,7 +134,7 @@ export default async function WorkDetailPage({
                   className="inline-flex items-center gap-2 px-4 lg:px-5 py-2 lg:py-2.5 rounded-lg bg-slate-100 dark:bg-white/5 text-slate-700 dark:text-slate-300 font-semibold text-sm hover:bg-slate-200 dark:hover:bg-white/10 transition-colors border border-transparent hover:border-slate-300 dark:hover:border-white/10"
                 >
                   <Github size={16} />
-                  Source
+                  <SourceLabel />
                 </a>
               )}
             </div>

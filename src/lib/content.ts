@@ -24,6 +24,7 @@ import {
   applyFrontmatterDefaults,
   toListItem,
 } from './markdown';
+import { getLocalePrefix, type Locale } from './locale';
 
 // ============================================================
 // 内容加载 (构建时使用)
@@ -36,15 +37,13 @@ import {
  * 获取所有作品
  * @description 在构建时读取 content/works 目录下的所有 Markdown 文件
  * @param contentDir - 内容目录路径
+ * @param locale - 可选语言标识，用于筛选 en_/ch_ 前缀文件
  * @returns 作品列表（已排序）
  *
  * Time Complexity: O(n * m + n log n)
- * - n: 作品数量
- * - m: 平均文件大小
- * - n log n: 排序
- * Space Complexity: O(n * m) 存储所有内容
+ * Space Complexity: O(n * m)
  */
-export async function getWorks(contentDir: string): Promise<Work[]> {
+export async function getWorks(contentDir: string, locale?: Locale): Promise<Work[]> {
   // 只在 Node.js 环境执行
   if (typeof window !== 'undefined') {
     console.warn('getWorks should only be called at build time');
@@ -62,10 +61,17 @@ export async function getWorks(contentDir: string): Promise<Work[]> {
     return [];
   }
 
-  // 读取所有 .md 文件
+  // 获取语言前缀（如 'en_' 或 'ch_'）
+  const prefix = locale ? getLocalePrefix(locale) : null;
+
+  // 读取所有 .md 文件，按语言前缀筛选
   const files = fs
     .readdirSync(worksDir)
-    .filter((file) => file.endsWith('.md') || file.endsWith('.mdx'));
+    .filter((file) => {
+      if (!file.endsWith('.md') && !file.endsWith('.mdx')) return false;
+      if (prefix) return file.startsWith(prefix);
+      return true;
+    });
 
   const works: Work[] = [];
 
@@ -88,23 +94,26 @@ export async function getWorks(contentDir: string): Promise<Work[]> {
  * 根据 slug 获取作品
  * @param slug - 作品 slug
  * @param contentDir - 内容目录路径
+ * @param locale - 可选语言标识
  * @returns 作品对象或 null
  */
 export async function getWorkBySlug(
   slug: string,
-  contentDir: string
+  contentDir: string,
+  locale?: Locale
 ): Promise<Work | null> {
-  const works = await getWorks(contentDir);
+  const works = await getWorks(contentDir, locale);
   return works.find((w) => w.slug === slug) || null;
 }
 
 /**
  * 获取作品列表（不含完整内容）
  * @param contentDir - 内容目录路径
+ * @param locale - 可选语言标识
  * @returns 作品列表项数组
  */
-export async function getWorkList(contentDir: string): Promise<WorkListItem[]> {
-  const works = await getWorks(contentDir);
+export async function getWorkList(contentDir: string, locale?: Locale): Promise<WorkListItem[]> {
+  const works = await getWorks(contentDir, locale);
   return works.map(toListItem);
 }
 
@@ -151,9 +160,10 @@ export async function getWorksByTag(
 /**
  * 获取个人信息
  * @param contentDir - 内容目录路径
+ * @param locale - 可选语言标识
  * @returns 个人信息对象
  */
-export async function getProfile(contentDir: string): Promise<Profile> {
+export async function getProfile(contentDir: string, locale?: Locale): Promise<Profile> {
   if (typeof window !== 'undefined') {
     return getDefaultProfile();
   }
@@ -161,7 +171,9 @@ export async function getProfile(contentDir: string): Promise<Profile> {
   const fs = await import('fs');
   const path = await import('path');
 
-  const profilePath = path.join(contentDir, 'profile', 'index.json');
+  // 根据语言选择文件：en_index.json 或 ch_index.json
+  const prefix = locale ? getLocalePrefix(locale) : 'en_';
+  const profilePath = path.join(contentDir, 'profile', `${prefix}index.json`);
 
   if (!fs.existsSync(profilePath)) {
     console.warn(`Profile file not found: ${profilePath}`);

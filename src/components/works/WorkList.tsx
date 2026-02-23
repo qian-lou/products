@@ -9,6 +9,7 @@
 
 import { motion } from 'motion/react';
 import { WorkCard } from './WorkCard';
+import { useI18n } from '@/components/providers/I18nProvider';
 import type { WorkListItem } from '@/types';
 
 // 容器动画变体
@@ -38,10 +39,12 @@ interface WorkListProps {
 }
 
 export function WorkList({ works }: WorkListProps) {
+  const { t } = useI18n();
+
   if (works.length === 0) {
     return (
       <div className="text-center py-20">
-        <p className="text-slate-500 dark:text-[#A0A0A0]">No works found.</p>
+        <p className="text-slate-500 dark:text-[#A0A0A0]">{t.common.noWorks}</p>
       </div>
     );
   }

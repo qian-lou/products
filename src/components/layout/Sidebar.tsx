@@ -30,6 +30,8 @@ const sidebarItem = {
   },
 };
 import { ThemeToggle } from '@/components/ui/ThemeToggle';
+import { LangToggle } from '@/components/ui/LangToggle';
+import { useI18n } from '@/components/providers/I18nProvider';
 import { cn } from '@/lib/utils';
 import type { Profile } from '@/types';
 
@@ -54,6 +56,7 @@ interface SidebarProps {
 
 export function Sidebar({ profile, mobileOnly, disableAnimation }: SidebarProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { t } = useI18n();
 
   // 侧边栏动画仅在首次访问时播放，后续导航跳过
   const shouldSkipAnimation = (() => {
@@ -194,18 +197,18 @@ export function Sidebar({ profile, mobileOnly, disableAnimation }: SidebarProps)
             {/* 信息网格：Location + Works */}
             <motion.div variants={sidebarItem} className="grid grid-cols-2 gap-2">
               {profile.location && (
-                <div className="rounded-lg bg-slate-50 dark:bg-white/[0.03] border border-slate-100 dark:border-white/5 px-3 py-2.5">
+                <div className="rounded-lg bg-white dark:bg-white/[0.04] border border-slate-100 dark:border-white/5 shadow-[0_1px_2px_rgba(0,0,0,0.04),inset_0_1px_0_rgba(255,255,255,0.8)] dark:shadow-[0_1px_2px_rgba(0,0,0,0.2),inset_0_1px_0_rgba(255,255,255,0.02)] px-3 py-2.5">
                   <span className="block text-[10px] uppercase tracking-widest text-slate-400 dark:text-slate-500 font-semibold mb-1">
-                    Location
+                    {t.sidebar.location}
                   </span>
                   <span className="text-sm font-semibold text-slate-900 dark:text-white">
                     {profile.location.split(',')[0]}
                   </span>
                 </div>
               )}
-              <div className="rounded-lg bg-slate-50 dark:bg-white/[0.03] border border-slate-100 dark:border-white/5 px-3 py-2.5">
+              <div className="rounded-lg bg-white dark:bg-white/[0.04] border border-slate-100 dark:border-white/5 shadow-[0_1px_2px_rgba(0,0,0,0.04),inset_0_1px_0_rgba(255,255,255,0.8)] dark:shadow-[0_1px_2px_rgba(0,0,0,0.2),inset_0_1px_0_rgba(255,255,255,0.02)] px-3 py-2.5">
                 <span className="block text-[10px] uppercase tracking-widest text-slate-400 dark:text-slate-500 font-semibold mb-1">
-                  Works
+                  {t.sidebar.works}
                 </span>
                 <span className="text-sm font-semibold text-slate-900 dark:text-white">
                   {profile.projects || '—'}
@@ -216,7 +219,7 @@ export function Sidebar({ profile, mobileOnly, disableAnimation }: SidebarProps)
             {/* Core Focus 标签 */}
             <motion.div variants={sidebarItem} className="flex flex-col gap-2">
               <h3 className="text-[10px] uppercase tracking-widest text-slate-400 dark:text-slate-500 font-semibold">
-                Core Focus
+                {t.sidebar.coreFocus}
               </h3>
               <div className="flex flex-wrap gap-1.5">
                 {profile.skills.map((skill) => (
@@ -233,36 +236,36 @@ export function Sidebar({ profile, mobileOnly, disableAnimation }: SidebarProps)
             {/* Highlights 2x2 网格 */}
             <motion.div variants={sidebarItem} className="flex flex-col gap-2">
               <h3 className="text-[10px] uppercase tracking-widest text-slate-400 dark:text-slate-500 font-semibold">
-                Highlights
+                {t.sidebar.highlights}
               </h3>
               <div className="grid grid-cols-2 gap-2">
-                <div className="rounded-lg bg-slate-50 dark:bg-white/[0.03] border border-slate-100 dark:border-white/5 px-3 py-2.5">
+                <div className="rounded-lg bg-white dark:bg-white/[0.04] border border-slate-100 dark:border-white/5 shadow-[0_1px_2px_rgba(0,0,0,0.04),inset_0_1px_0_rgba(255,255,255,0.8)] dark:shadow-[0_1px_2px_rgba(0,0,0,0.2),inset_0_1px_0_rgba(255,255,255,0.02)] px-3 py-2.5">
                   <span className="block text-[10px] uppercase tracking-widest text-slate-400 dark:text-slate-500 font-semibold mb-1">
-                    Experience
+                    {t.sidebar.experience}
                   </span>
                   <span className="text-sm font-semibold text-slate-900 dark:text-white">
                     {profile.yearsOfExperience ? `${profile.yearsOfExperience} Years` : '—'}
                   </span>
                 </div>
-                <div className="rounded-lg bg-slate-50 dark:bg-white/[0.03] border border-slate-100 dark:border-white/5 px-3 py-2.5">
+                <div className="rounded-lg bg-white dark:bg-white/[0.04] border border-slate-100 dark:border-white/5 shadow-[0_1px_2px_rgba(0,0,0,0.04),inset_0_1px_0_rgba(255,255,255,0.8)] dark:shadow-[0_1px_2px_rgba(0,0,0,0.2),inset_0_1px_0_rgba(255,255,255,0.02)] px-3 py-2.5">
                   <span className="block text-[10px] uppercase tracking-widest text-slate-400 dark:text-slate-500 font-semibold mb-1">
-                    Projects
+                    {t.sidebar.projects}
                   </span>
                   <span className="text-sm font-semibold text-slate-900 dark:text-white">
                     {profile.projects || '—'}
                   </span>
                 </div>
-                <div className="rounded-lg bg-slate-50 dark:bg-white/[0.03] border border-slate-100 dark:border-white/5 px-3 py-2.5">
+                <div className="rounded-lg bg-white dark:bg-white/[0.04] border border-slate-100 dark:border-white/5 shadow-[0_1px_2px_rgba(0,0,0,0.04),inset_0_1px_0_rgba(255,255,255,0.8)] dark:shadow-[0_1px_2px_rgba(0,0,0,0.2),inset_0_1px_0_rgba(255,255,255,0.02)] px-3 py-2.5">
                   <span className="block text-[10px] uppercase tracking-widest text-slate-400 dark:text-slate-500 font-semibold mb-1">
-                    Clients
+                    {t.sidebar.clients}
                   </span>
                   <span className="text-sm font-semibold text-slate-900 dark:text-white">
                     {profile.clients || '—'}
                   </span>
                 </div>
-                <div className="rounded-lg bg-slate-50 dark:bg-white/[0.03] border border-slate-100 dark:border-white/5 px-3 py-2.5">
+                <div className="rounded-lg bg-white dark:bg-white/[0.04] border border-slate-100 dark:border-white/5 shadow-[0_1px_2px_rgba(0,0,0,0.04),inset_0_1px_0_rgba(255,255,255,0.8)] dark:shadow-[0_1px_2px_rgba(0,0,0,0.2),inset_0_1px_0_rgba(255,255,255,0.02)] px-3 py-2.5">
                   <span className="block text-[10px] uppercase tracking-widest text-slate-400 dark:text-slate-500 font-semibold mb-1">
-                    Timezone
+                    {t.sidebar.timezone}
                   </span>
                   <span className="text-sm font-semibold text-slate-900 dark:text-white">
                     {profile.timezone || '—'}
@@ -274,36 +277,36 @@ export function Sidebar({ profile, mobileOnly, disableAnimation }: SidebarProps)
             {/* Contact 2x2 网格 */}
             <motion.div variants={sidebarItem} className="flex flex-col gap-2">
               <h3 className="text-[10px] uppercase tracking-widest text-slate-400 dark:text-slate-500 font-semibold">
-                Contact
+                {t.sidebar.contact}
               </h3>
               <div className="grid grid-cols-2 gap-2">
-                <div className="rounded-lg bg-slate-50 dark:bg-white/[0.03] border border-slate-100 dark:border-white/5 px-3 py-2.5">
+                <div className="rounded-lg bg-white dark:bg-white/[0.04] border border-slate-100 dark:border-white/5 shadow-[0_1px_2px_rgba(0,0,0,0.04),inset_0_1px_0_rgba(255,255,255,0.8)] dark:shadow-[0_1px_2px_rgba(0,0,0,0.2),inset_0_1px_0_rgba(255,255,255,0.02)] px-3 py-2.5">
                   <span className="block text-[10px] uppercase tracking-widest text-slate-400 dark:text-slate-500 font-semibold mb-1">
-                    Email
+                    {t.sidebar.email}
                   </span>
                   <span className="text-xs font-semibold text-slate-900 dark:text-white break-all">
                     {profile.email || '—'}
                   </span>
                 </div>
-                <div className="rounded-lg bg-slate-50 dark:bg-white/[0.03] border border-slate-100 dark:border-white/5 px-3 py-2.5">
+                <div className="rounded-lg bg-white dark:bg-white/[0.04] border border-slate-100 dark:border-white/5 shadow-[0_1px_2px_rgba(0,0,0,0.04),inset_0_1px_0_rgba(255,255,255,0.8)] dark:shadow-[0_1px_2px_rgba(0,0,0,0.2),inset_0_1px_0_rgba(255,255,255,0.02)] px-3 py-2.5">
                   <span className="block text-[10px] uppercase tracking-widest text-slate-400 dark:text-slate-500 font-semibold mb-1">
-                    Website
+                    {t.sidebar.website}
                   </span>
                   <span className="text-xs font-semibold text-slate-900 dark:text-white">
                     {profile.website || '—'}
                   </span>
                 </div>
-                <div className="rounded-lg bg-slate-50 dark:bg-white/[0.03] border border-slate-100 dark:border-white/5 px-3 py-2.5">
+                <div className="rounded-lg bg-white dark:bg-white/[0.04] border border-slate-100 dark:border-white/5 shadow-[0_1px_2px_rgba(0,0,0,0.04),inset_0_1px_0_rgba(255,255,255,0.8)] dark:shadow-[0_1px_2px_rgba(0,0,0,0.2),inset_0_1px_0_rgba(255,255,255,0.02)] px-3 py-2.5">
                   <span className="block text-[10px] uppercase tracking-widest text-slate-400 dark:text-slate-500 font-semibold mb-1">
-                    Base
+                    {t.sidebar.base}
                   </span>
                   <span className="text-xs font-semibold text-slate-900 dark:text-white">
                     {profile.location || '—'}
                   </span>
                 </div>
-                <div className="rounded-lg bg-slate-50 dark:bg-white/[0.03] border border-slate-100 dark:border-white/5 px-3 py-2.5">
+                <div className="rounded-lg bg-white dark:bg-white/[0.04] border border-slate-100 dark:border-white/5 shadow-[0_1px_2px_rgba(0,0,0,0.04),inset_0_1px_0_rgba(255,255,255,0.8)] dark:shadow-[0_1px_2px_rgba(0,0,0,0.2),inset_0_1px_0_rgba(255,255,255,0.02)] px-3 py-2.5">
                   <span className="block text-[10px] uppercase tracking-widest text-slate-400 dark:text-slate-500 font-semibold mb-1">
-                    Availability
+                    {t.sidebar.availability}
                   </span>
                   <span className="text-xs font-semibold text-slate-900 dark:text-white">
                     {profile.availability || '—'}
@@ -332,7 +335,10 @@ export function Sidebar({ profile, mobileOnly, disableAnimation }: SidebarProps)
                 );
               })}
             </div>
-            <ThemeToggle />
+            <div className="flex items-center gap-2">
+              <LangToggle />
+              <ThemeToggle />
+            </div>
           </div>
         </header>
       )}

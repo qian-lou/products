@@ -18,7 +18,7 @@ interface WorkCardProps {
 
 export function WorkCard({ work }: WorkCardProps) {
   return (
-    <article className="group relative grid grid-cols-1 md:grid-cols-8 gap-6 p-6 -mx-6 rounded-2xl hover:bg-white dark:hover:bg-white/5 transition-all duration-500 hover:shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:hover:shadow-none border border-transparent hover:border-slate-100 dark:hover:border-white/5">
+    <article className="group relative grid grid-cols-1 md:grid-cols-8 gap-6 p-6 -mx-6 rounded-2xl bg-white/50 dark:bg-white/[0.02] shadow-[0_1px_3px_rgba(0,0,0,0.04),0_1px_2px_rgba(0,0,0,0.02)] dark:shadow-[0_1px_3px_rgba(0,0,0,0.2)] hover:shadow-[0_20px_40px_-12px_rgba(0,0,0,0.08),0_8px_16px_-8px_rgba(0,0,0,0.04)] dark:hover:shadow-[0_20px_40px_-12px_rgba(0,0,0,0.5),0_8px_16px_-8px_rgba(0,0,0,0.3)] hover:-translate-y-1 transition-all duration-500 border border-slate-100/80 dark:border-white/5 hover:border-slate-200 dark:hover:border-white/10">
       {/* 内容区域 */}
       <div className="md:col-span-5 lg:col-span-6 flex flex-col justify-center order-2 md:order-1">
         {/* 标题 */}
