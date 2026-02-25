@@ -287,35 +287,35 @@ export function Sidebar({ profile, mobileOnly, disableAnimation }: SidebarProps)
                 {t.sidebar.contact}
               </h3>
               <div className="grid grid-cols-2 gap-2">
-                <div className="rounded-lg bg-white dark:bg-white/[0.04] border border-slate-100 dark:border-white/5 shadow-[0_1px_2px_rgba(0,0,0,0.04),inset_0_1px_0_rgba(255,255,255,0.8)] dark:shadow-[0_1px_2px_rgba(0,0,0,0.2),inset_0_1px_0_rgba(255,255,255,0.02)] px-3 py-2.5">
+                <div className="rounded-lg bg-white dark:bg-white/[0.04] border border-slate-100 dark:border-white/5 shadow-[0_1px_2px_rgba(0,0,0,0.04),inset_0_1px_0_rgba(255,255,255,0.8)] dark:shadow-[0_1px_2px_rgba(0,0,0,0.2),inset_0_1px_0_rgba(255,255,255,0.02)] px-3 py-2.5 overflow-hidden min-w-0">
                   <span className="block text-[10px] uppercase tracking-widest text-slate-400 dark:text-slate-500 font-semibold mb-1">
                     {t.sidebar.email}
                   </span>
-                  <span className="text-xs font-semibold text-slate-900 dark:text-white break-all">
+                  <span className="text-xs font-semibold text-slate-900 dark:text-white truncate block" title={profile.email}>
                     {profile.email || '—'}
                   </span>
                 </div>
-                <div className="rounded-lg bg-white dark:bg-white/[0.04] border border-slate-100 dark:border-white/5 shadow-[0_1px_2px_rgba(0,0,0,0.04),inset_0_1px_0_rgba(255,255,255,0.8)] dark:shadow-[0_1px_2px_rgba(0,0,0,0.2),inset_0_1px_0_rgba(255,255,255,0.02)] px-3 py-2.5">
+                <div className="rounded-lg bg-white dark:bg-white/[0.04] border border-slate-100 dark:border-white/5 shadow-[0_1px_2px_rgba(0,0,0,0.04),inset_0_1px_0_rgba(255,255,255,0.8)] dark:shadow-[0_1px_2px_rgba(0,0,0,0.2),inset_0_1px_0_rgba(255,255,255,0.02)] px-3 py-2.5 overflow-hidden min-w-0">
                   <span className="block text-[10px] uppercase tracking-widest text-slate-400 dark:text-slate-500 font-semibold mb-1">
                     {t.sidebar.website}
                   </span>
-                  <span className="text-xs font-semibold text-slate-900 dark:text-white">
+                  <span className="text-xs font-semibold text-slate-900 dark:text-white truncate block" title={profile.website}>
                     {profile.website || '—'}
                   </span>
                 </div>
-                <div className="rounded-lg bg-white dark:bg-white/[0.04] border border-slate-100 dark:border-white/5 shadow-[0_1px_2px_rgba(0,0,0,0.04),inset_0_1px_0_rgba(255,255,255,0.8)] dark:shadow-[0_1px_2px_rgba(0,0,0,0.2),inset_0_1px_0_rgba(255,255,255,0.02)] px-3 py-2.5">
+                <div className="rounded-lg bg-white dark:bg-white/[0.04] border border-slate-100 dark:border-white/5 shadow-[0_1px_2px_rgba(0,0,0,0.04),inset_0_1px_0_rgba(255,255,255,0.8)] dark:shadow-[0_1px_2px_rgba(0,0,0,0.2),inset_0_1px_0_rgba(255,255,255,0.02)] px-3 py-2.5 overflow-hidden min-w-0">
                   <span className="block text-[10px] uppercase tracking-widest text-slate-400 dark:text-slate-500 font-semibold mb-1">
                     {t.sidebar.base}
                   </span>
-                  <span className="text-xs font-semibold text-slate-900 dark:text-white">
+                  <span className="text-xs font-semibold text-slate-900 dark:text-white truncate block" title={profile.location}>
                     {profile.location || '—'}
                   </span>
                 </div>
-                <div className="rounded-lg bg-white dark:bg-white/[0.04] border border-slate-100 dark:border-white/5 shadow-[0_1px_2px_rgba(0,0,0,0.04),inset_0_1px_0_rgba(255,255,255,0.8)] dark:shadow-[0_1px_2px_rgba(0,0,0,0.2),inset_0_1px_0_rgba(255,255,255,0.02)] px-3 py-2.5">
+                <div className="rounded-lg bg-white dark:bg-white/[0.04] border border-slate-100 dark:border-white/5 shadow-[0_1px_2px_rgba(0,0,0,0.04),inset_0_1px_0_rgba(255,255,255,0.8)] dark:shadow-[0_1px_2px_rgba(0,0,0,0.2),inset_0_1px_0_rgba(255,255,255,0.02)] px-3 py-2.5 overflow-hidden min-w-0">
                   <span className="block text-[10px] uppercase tracking-widest text-slate-400 dark:text-slate-500 font-semibold mb-1">
                     {t.sidebar.availability}
                   </span>
-                  <span className="text-xs font-semibold text-slate-900 dark:text-white">
+                  <span className="text-xs font-semibold text-slate-900 dark:text-white truncate block" title={profile.availability}>
                     {profile.availability || '—'}
                   </span>
                 </div>
