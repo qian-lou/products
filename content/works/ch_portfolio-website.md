@@ -10,7 +10,7 @@ tags:
   - SSG
 cover: "/images/works/portfolio-cover.svg"
 demo: "https://myportfolio.vercel.app"
-github: "https://github.com/username/portfolio"
+github: "https://github.com/qian-lou/products/"
 featured: true
 order: 1
 ---
