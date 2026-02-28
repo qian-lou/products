@@ -8,7 +8,7 @@ tags:
   - Next.js 14
   - AI / LLM
   - PostgreSQL
-cover: "/images/works/ecommerce-dashboard-cover.svg"
+cover: "/images/works/jd-resume-cover.png"
 github: ""
 demo: ""
 featured: true
@@ -29,19 +29,23 @@ An intelligent resume generation tool customized based on target Job Description
 ## Tech Stack & Architecture
 
 ### Backend Architecture
+
 - **Core Framework**: Java 25 + Spring Boot 3.4
 - **Data Storage**: PostgreSQL 16 (Application Data) + Redis 7 (Caching & Async Task Queue)
 - **Security & Auth**: Spring Security + JWT
 - **API Management**: OpenAPI (Swagger)
 
 ### Frontend Architecture
+
 - **Core Framework**: Next.js 14 (App Router)
 - **UI & Language**: React 18 + TypeScript
 - **Styling & Components**: Tailwind CSS + shadcn/ui
 
 ### AI & LLM Integration
+
 - **LLM Integration**: Integrated with Zhipu GLM API (default glm-4-flash) and OpenAI models.
 - **Asynchronous Workflow**: Supports asynchronous LLM calls, task status polling, and result retrieval.
 
 ### Deployment & DevOps
+
 - **Containerized Deployment**: Docker + Docker Compose for seamless orchestration of frontend, backend, and middleware.

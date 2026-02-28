@@ -8,7 +8,7 @@ tags:
   - Next.js 14
   - AI / LLM
   - PostgreSQL
-cover: "/images/works/ecommerce-dashboard-cover.svg"
+cover: "/images/works/jd-resume-cover.png"
 github: ""
 demo: ""
 featured: true

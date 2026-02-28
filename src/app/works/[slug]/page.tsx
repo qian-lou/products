@@ -144,14 +144,15 @@ export default async function WorkDetailPage({
         {/* 封面图片 */}
         {work.cover && (
           <div className="max-w-none mx-auto px-6 mt-6 lg:mt-8">
-            <div className="relative aspect-video rounded-xl lg:rounded-2xl overflow-hidden bg-slate-200 dark:bg-[#1E1E1E] border border-slate-200 dark:border-white/10 shadow-xl lg:shadow-2xl shadow-slate-900/10 dark:shadow-black/50">
+            <div className="relative w-full rounded-xl lg:rounded-2xl overflow-hidden bg-slate-200/50 dark:bg-[#1E1E1E]/50 border border-slate-200 dark:border-white/10 shadow-xl lg:shadow-2xl shadow-slate-900/10 dark:shadow-black/50 flex justify-center">
               <Image
                 src={work.cover}
                 alt={work.title}
-                fill
-                sizes="(max-width: 768px) 100vw, 896px"
+                width={1024}
+                height={804}
                 priority
-                className="object-cover"
+                className="w-full h-auto object-contain max-h-[70vh]"
+                unoptimized={true}
               />
             </div>
           </div>
