@@ -1,11 +1,12 @@
 # Portfolio Website
 
-A modern, minimal, and highly interactive portfolio website built with Next.js 15, TypeScript, Tailwind CSS v4, and Framer Motion.
+A modern, minimal, and highly interactive portfolio website built with Next.js 16, React 19, TypeScript 5.8, Tailwind CSS v4, and Motion.
 
-![Next.js](https://img.shields.io/badge/Next.js-15-black?style=flat-square&logo=next.js)
-![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue?style=flat-square&logo=typescript)
+![Next.js](https://img.shields.io/badge/Next.js-16-black?style=flat-square&logo=next.js)
+![React](https://img.shields.io/badge/React-19-61dafb?style=flat-square&logo=react)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.8-blue?style=flat-square&logo=typescript)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind-4.x-38bdf8?style=flat-square&logo=tailwindcss)
-![Framer Motion](https://img.shields.io/badge/Framer_Motion-12-ff0055?style=flat-square&logo=framer)
+![Motion](https://img.shields.io/badge/Motion-12-ff0055?style=flat-square&logo=framer)
 ![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
 
 ## ✨ Features
@@ -14,10 +15,24 @@ A modern, minimal, and highly interactive portfolio website built with Next.js 1
 - 🌐 **Internationalization (i18n)** - Full bilingual support (English and Simplified Chinese) via seamless dropdown
 - 🌌 **Fluid Particle Background** - Interactive, high-performance canvas background that dynamically reacts to mouse movements and theme changes
 - 🌗 **Dark/Light Mode** - System preference detection with manual toggle integrated with `next-themes`
-- 📝 **Markdown Content Management** - Easy and flexible content management via Markdown (MDX/MD) files with split-language prefixes (`en_` and `ch_`)
-- 🎨 **Modern UI & Animations** - Clean aesthetics with smooth `framer-motion` page transitions and staggered container lists
+- 📝 **Markdown Content Management** - Easy and flexible content management via Markdown files with language prefixes (`en_` and `ch_`)
+- 🎨 **Modern UI & Animations** - Clean aesthetics with smooth `motion` page transitions and staggered container lists
 - ⚡ **Static Generation (SSG)** - Pre-rendered pages for optimal performance and fast load times
 - 🔍 **SEO Optimized** - Dynamic meta tags, OpenGraph support, sitemap, and robots.txt
+
+## 🛠️ Tech Stack
+
+| Category | Technology | Version |
+|----------|------------|---------|
+| **Framework** | [Next.js](https://nextjs.org/) (App Router) | 16.x |
+| **UI Library** | [React](https://react.dev/) | 19.x |
+| **Language** | [TypeScript](https://www.typescriptlang.org/) | 5.8 |
+| **Styling** | [Tailwind CSS](https://tailwindcss.com/) | 4.x |
+| **Animation** | [Motion](https://motion.dev/) (Framer Motion) | 12.x |
+| **Theme** | [next-themes](https://github.com/pacocoursey/next-themes) | 0.4.x |
+| **Icons** | [Lucide React](https://lucide.dev/) | Latest |
+| **Markdown** | gray-matter + remark + remark-gfm + remark-html | Latest |
+| **Utilities** | clsx + tailwind-merge | Latest |
 
 ## 🚀 Quick Start
 
@@ -45,27 +60,60 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 ## 📁 Project Structure
 
 ```text
-├── app/                    # Next.js App Router
-│   ├── layout.tsx          # Root layout with providers (Theme, i18n)
-│   ├── page.tsx            # Homepage
-│   ├── globals.css         # Global styles and Tailwind configs
-│   └── works/[slug]/       # Work detail pages
-├── components/
-│   ├── layout/             # Layout components (Sidebar, ResizableLayout)
-│   ├── ui/                 # UI elements (DynamicBackground, LangToggle, ThemeToggle)
-│   └── works/              # Work-related content components
-├── content/
-│   ├── works/              # Markdown work files (en_*.md, ch_*.md)
-│   ├── profile/            # Personal info files (en_index.json, ch_index.json)
-│   └── config.json         # Site configuration
-├── lib/                    # Utility functions (i18n helpers, md parsers, utils)
-├── public/                 # Static images and assets
-└── scripts/                # Utility scripts for parsing and validating content
+├── content/                    # Content files (Markdown/JSON)
+│   ├── works/                  # Work Markdown files (en_*.md, ch_*.md)
+│   ├── profile/                # Profile JSON files (en_index.json, ch_index.json)
+│   └── config.json             # Site configuration
+├── public/                     # Static assets (images, fonts)
+│   └── data/                   # Generated JSON data
+├── scripts/                    # Utility scripts
+│   ├── validate-content.js     # Content validation
+│   ├── build-data.js           # Data build script
+│   └── new-work.js             # Create new work template
+├── src/
+│   ├── app/                    # Next.js App Router
+│   │   ├── layout.tsx          # Root layout with providers
+│   │   ├── page.tsx            # Homepage
+│   │   ├── globals.css         # Global styles
+│   │   ├── sitemap.ts          # Dynamic sitemap
+│   │   ├── robots.ts           # Robots.txt config
+│   │   └── works/[slug]/       # Work detail pages
+│   ├── components/
+│   │   ├── layout/             # Layout components (Sidebar, ResizableLayout, Footer)
+│   │   ├── providers/          # Context providers (Theme, I18n)
+│   │   ├── ui/                 # UI components (DynamicBackground, ThemeToggle, LangToggle)
+│   │   └── works/              # Work-related components (WorkCard, WorkList, etc.)
+│   ├── hooks/                  # Custom React hooks
+│   ├── i18n/                   # Internationalization configs
+│   ├── lib/                    # Utility functions (content, markdown, locale, etc.)
+│   └── types/                  # TypeScript type definitions
+├── next.config.ts              # Next.js configuration
+├── tailwind.config.ts          # Tailwind CSS configuration
+├── tsconfig.json               # TypeScript configuration
+└── vercel.json                 # Vercel deployment config
 ```
 
 ## 📝 Content Management
 
-### 1. Bilingual Profiles
+### 1. Site Configuration
+
+Edit `content/config.json` to update site metadata:
+
+```json
+{
+  "seo": {
+    "title": "Your Name - Title",
+    "description": "Your description...",
+    "url": "https://yoursite.com"
+  },
+  "features": {
+    "darkMode": true,
+    "analytics": false
+  }
+}
+```
+
+### 2. Bilingual Profiles
 
 Update the user profile for both languages in `content/profile/en_index.json` and `content/profile/ch_index.json`:
 
@@ -84,9 +132,9 @@ Update the user profile for both languages in `content/profile/en_index.json` an
 }
 ```
 
-### 2. Adding Works (Bilingual Markdown)
+### 3. Adding Works (Bilingual Markdown)
 
-Works are driven by Markdown files. To add a new work, simply provide two locale versions with identical `slug` properties but localized content.
+Works are driven by Markdown files. Create two locale versions with identical `slug` but localized content.
 
 Example: create `content/works/en_my-project.md` and `content/works/ch_my-project.md`:
 
@@ -108,25 +156,78 @@ featured: true
 Your content here...
 ```
 
-The system will match user language preference and display the appropriate localized file!
+### Frontmatter Fields
 
-## 🛠️ Available Scripts
+| Field | Required | Description |
+|-------|----------|-------------|
+| `title` | ✅ | Project title |
+| `slug` | ✅ | URL identifier |
+| `date` | ✅ | Publish date (ISO 8601) |
+| `excerpt` | ✅ | Short description for list/SEO |
+| `tags` | ✅ | Tag array |
+| `cover` | ❌ | Cover image path |
+| `demo` | ❌ | Demo URL |
+| `github` | ❌ | GitHub repo URL |
+| `featured` | ❌ | Priority display (default: false) |
+| `published` | ❌ | Publish status (default: true) |
+| `order` | ❌ | Custom sort weight |
+
+## 🔧 Available Scripts
 
 | Command | Description |
 |---------|-------------|
-| `npm run dev` | Start development server |
+| `npm run dev` | Start development server (port 3000) |
 | `npm run build` | Validate content and build for production |
 | `npm run start` | Start production server |
 | `npm run lint` | Run ESLint |
-| `npm run content:validate` | Check data integrity in Markdowns |
+| `npm run content:validate` | Validate Markdown frontmatter |
+| `npm run content:build` | Build JSON data from Markdown |
+| `npm run new:work` | Create new work template |
 
-## 📦 Tech Stack Additions
+## 🎨 Design System
 
-- **Framework**: [Next.js 15](https://nextjs.org/) (App Router)
-- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
-- **Interactions**: [Motion (Framer Motion)](https://motion.dev/)
-- **Theme/i18n**: next-themes & custom cookie-based locale detection
+- **Fonts**: Inter (body) + Outfit (headings) via Google Fonts
+- **Colors**: Neutral palette with blue accent
+- **Spacing**: Consistent whitespace with Tailwind's scale
+- **Border Radius**: 8px standard
+- **Transitions**: 200-300ms for hover effects
+
+## 🚀 Deployment
+
+### Vercel (Recommended)
+
+1. Push code to GitHub
+2. Import repository in [Vercel](https://vercel.com)
+3. Deploy automatically
+
+### Content Updates
+
+1. Add/edit Markdown files in `content/works/`
+2. Commit and push to GitHub
+3. Vercel auto-rebuilds and deploys
+
+## 📊 Performance
+
+- **SSG**: All pages pre-rendered at build time
+- **Font Optimization**: Automatic with Next.js
+- **Image Optimization**: Next.js Image component
+- **Code Splitting**: Automatic route-based splitting
+- **Tree Shaking**: Unused code eliminated
+
+## 🔒 Security
+
+- No runtime database calls
+- No sensitive data in client bundle
+- CSP-ready headers
+- No external API dependencies
 
 ## 📄 License
 
 MIT License - feel free to use this for your own portfolio!
+
+## 🙏 Acknowledgments
+
+- [Next.js](https://nextjs.org/) - The React Framework
+- [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS
+- [Motion](https://motion.dev/) - Animation library
+- [Lucide](https://lucide.dev/) - Beautiful icons

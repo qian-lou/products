@@ -43,5 +43,20 @@
     "cover": "/images/works/cli-task-cover.png",
     "featured": false,
     "readingTime": 1
+  },
+  {
+    "title": "AI Blog",
+    "slug": "ai-blog",
+    "date": "2024-03-24",
+    "excerpt": "A modern retro-style static blog system built with Next.js, Tailwind CSS, and MDX. Designed for developers and content creators who appreciate clean design and powerful features.",
+    "tags": [
+      "Next.js",
+      "React",
+      "Tailwind CSS",
+      "MDX"
+    ],
+    "cover": "/images/works/ai-blog-cover.png",
+    "featured": true,
+    "readingTime": 2
   }
 ]

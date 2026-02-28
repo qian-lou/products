@@ -1,0 +1,22 @@
+{
+    "title": "AI Blog",
+    "slug": "ai-blog",
+    "date": "2024-03-24",
+    "excerpt": "A modern retro-style static blog system built with Next.js, Tailwind CSS, and MDX. Designed for developers and content creators who appreciate clean design and powerful features.",
+    "tags": [
+        "Next.js",
+        "React",
+        "Tailwind CSS",
+        "MDX"
+    ],
+    "cover": "/images/works/ai-blog-cover.png",
+    "demo": "https://ai-blog-james.vercel.app/",
+    "github": "https://github.com/qian-lou/ai-blog",
+    "featured": true,
+    "published": true,
+    "order": 2,
+    "content": "<h2>Project Overview</h2>\n\nAI Blog is a modern retro-style static blog system built with Next.js, Tailwind CSS, and MDX. Designed for developers and content creators who appreciate clean design and powerful features.\n\n<h2>Features</h2>\n\n- <strong>Static Site Generation (SSG)</strong> - Fast loading with pre-rendered HTML\n- <strong>MDX Support</strong> - Write rich content with Markdown + React components\n- <strong>Internationalization (i18n)</strong> - Built-in support for English and Chinese\n- <strong>Neo-Brutalism Design</strong> - Modern retro aesthetic with hard borders and solid shadows\n- <strong>Dark Mode</strong> - Seamless light/dark theme switching\n- <strong>Responsive Design</strong> - Works perfectly on all devices\n- <strong>Free Hosting</strong> - Deploy to GitHub Pages or Vercel at zero cost\n\n<h2>Tech Stack</h2>\n\n- <strong>Framework</strong>: Next.js 16 with App Router\n- <strong>UI</strong>: React 19 + Tailwind CSS 4\n- <strong>Content</strong>: MDX via `next-mdx-remote`\n- <strong>Frontmatter</strong>: `gray-matter` for YAML parsing\n- <strong>Theming</strong>: `next-themes` for dark mode\n",
+    "rawContent": "## Project Overview\n\nAI Blog is a modern retro-style static blog system built with Next.js, Tailwind CSS, and MDX. Designed for developers and content creators who appreciate clean design and powerful features.\n\n## Features\n\n- **Static Site Generation (SSG)** - Fast loading with pre-rendered HTML\n- **MDX Support** - Write rich content with Markdown + React components\n- **Internationalization (i18n)</strong> - Built-in support for English and Chinese\n- **Neo-Brutalism Design** - Modern retro aesthetic with hard borders and solid shadows\n- **Dark Mode** - Seamless light/dark theme switching\n- **Responsive Design** - Works perfectly on all devices\n- **Free Hosting** - Deploy to GitHub Pages or Vercel at zero cost\n\n## Tech Stack\n\n- **Framework**: Next.js 16 with App Router\n- **UI**: React 19 + Tailwind CSS 4\n- **Content**: MDX via `next-mdx-remote`\n- **Frontmatter**: `gray-matter` for YAML parsing\n- **Theming**: `next-themes` for dark mode\n",
+    "filePath": "ai-blog.md",
+    "readingTime": 2
+}
